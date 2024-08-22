@@ -12,10 +12,17 @@ import { EmployeeProfilesComponent } from './employee-profiles.component';
     EmployeeProfilesComponent   
   ],
   imports: [
+    // Angular 
     BrowserModule,
     FormsModule,
     HttpClientModule,  
     AppRoutingModule 
+
+    // NgRx
+    StoreModule.forRoot({ todo: todoReducer, user: userReducer }), // Register your reducers, the key represents the name of the slice of state in the store (used when creating feature selectors)
+    EffectsModule.forRoot([TodoEffects]), // Register your effects
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }), // enabling NgRx devtools, which you can then use the Redux devtools in your browser to check the states and actions
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
