@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { VisaEffects } from './store/visa.effects';
 
 import { AppComponent } from './app.component';
 import { EmployeeProfilesComponent } from './employee-profiles.component';
@@ -17,6 +19,8 @@ import { EmployeeProfilesComponent } from './employee-profiles.component';
     FormsModule,
     HttpClientModule,  
     AppRoutingModule 
+    EffectsModule.forRoot([VisaEffects]),
+
 
     // NgRx
     StoreModule.forRoot({ todo: todoReducer, user: userReducer }), // Register your reducers, the key represents the name of the slice of state in the store (used when creating feature selectors)
@@ -28,3 +32,4 @@ import { EmployeeProfilesComponent } from './employee-profiles.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
