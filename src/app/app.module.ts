@@ -1,36 +1,43 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { VisaEffects } from './store/visa.effects';
+import { visaReducer } from './store/visa.reducer';
 
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { EmployeeProfilesComponent } from './employee-profile/employee-profiles.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { EmployeeProfilesComponent } from './pages/employee-profile/employee-profiles.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeeDetailComponent } from './pages/employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
-    EmployeeProfilesComponent   
+    EmployeeProfilesComponent,
+    EmployeeDetailComponent   
   ],
   imports: [
     // Angular 
     BrowserModule,
     RouterModule,
     FormsModule,
+    NavigationComponent,
     HttpClientModule,  
-    AppRoutingModule 
+    AppRoutingModule, 
     EffectsModule.forRoot([VisaEffects]),
 
 
     // NgRx
-    StoreModule.forRoot({ todo: todoReducer, user: userReducer }), // Register your reducers, the key represents the name of the slice of state in the store (used when creating feature selectors)
-    EffectsModule.forRoot([TodoEffects]), // Register your effects
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }), // enabling NgRx devtools, which you can then use the Redux devtools in your browser to check the states and actions
+    StoreModule.forRoot({ visa: visaReducer }), 
+    EffectsModule.forRoot([VisaEffects]), 
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }), BrowserAnimationsModule,
     
   ],
   providers: [],

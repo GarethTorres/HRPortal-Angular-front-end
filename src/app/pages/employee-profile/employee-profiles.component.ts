@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employee } from '../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
 
@@ -12,7 +13,7 @@ export class EmployeeProfilesComponent implements OnInit {
   filteredEmployees: Employee[] = [];
   searchTerm: string = '';
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private router: Router, private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -36,7 +37,7 @@ export class EmployeeProfilesComponent implements OnInit {
   }
 
   openEmployeeProfile(employeeId: string): void {
-    window.open(`/employee-profile/${employeeId}`, '_blank');
+    this.router.navigate(['/employee-profile', employeeId]);
   }
 }
 
