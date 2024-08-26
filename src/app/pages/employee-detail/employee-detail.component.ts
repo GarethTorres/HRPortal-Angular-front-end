@@ -33,4 +33,12 @@ export class EmployeeDetailComponent implements OnInit {
       }
     );
   }
+
+  previewDocument(document: { name: string; updated: Date }) {
+    console.log('Previewing document:', document);
+  }
+
+  downloadDocument(document: { name: string; updated: Date }) {
+    console.log('Downloading document:', document);
+  }
 }
