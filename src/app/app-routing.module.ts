@@ -6,6 +6,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { GenerateTokenComponent } from './pages/generate-token/generate-token.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HousingManagementComponent } from './pages/housing-management/housing-management.component';
+
 // TODO: insert import for the rest of pages
 import { OnboardingApplicationReviewComponent } from './pages/onboarding-application-review/onboarding-application-review.component';
 import { ViewApplicationComponent } from './pages/view-application/view-application.component';
@@ -22,6 +24,7 @@ const routes: Routes = [
   // { path: 'applications/:applicationId', component: ViewApplicationComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' },
+  { path: 'housing-management', component: HousingManagementComponent },
 ];
 
 @NgModule({

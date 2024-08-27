@@ -46,6 +46,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OnboardingApplicationReviewComponent } from './pages/onboarding-application-review/onboarding-application-review.component';
 import { ViewApplicationComponent } from './pages/view-application/view-application.component';
 
+import { HousingManagementComponent } from './pages/housing-management/housing-management.component';
+import { AddHouseDialogComponent } from './pages/housing-management/add-house-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +63,8 @@ import { ViewApplicationComponent } from './pages/view-application/view-applicat
     DocumentPreviewDialogComponent,
     ApprovalConfirmationDialogComponent,
     RejectionConfirmationDialogComponent,
+    HousingManagementComponent,
+    AddHouseDialogComponent
   ],
   imports: [
     // Angular
