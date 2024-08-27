@@ -1,9 +1,17 @@
-export interface VisaStatus {
-    visaType: string;
-    currentStep: 'OPT_RECEIPT' | 'OPT_EAD' | 'I_983' | 'I_20';
-    status: 'PENDING' | 'APPROVED' | 'REJECTED';
+export interface EmployeeVisaStatus {
+  id: string;
+  name: string;
+  workAuthorization: {
+    title: string;
+    startDate: Date;
+    endDate: Date;
+  };
+  nextStep: string;
+  documents: {
+    type: string;
+    status: 'pending' | 'approved' | 'rejected';
     feedback?: string;
-  }
+    file?: File;
+  }[];
+}
 
-
-  

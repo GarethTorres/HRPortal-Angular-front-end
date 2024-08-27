@@ -1,0 +1,64 @@
+<h2>Visa Status Management</h2>
+
+<h3>In Progress</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Work Authorization</th>
+      <th>Next Step</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of inProgressVisaStatuses">
+      <td>{{ employee.name }}</td>
+      <td>
+        {{ employee.workAuthorization.title }}<br>
+        {{ employee.workAuthorization.startDate | date }} - {{ employee.workAuthorization.endDate | date }}<br>
+        {{ getRemainingDays(employee.workAuthorization.endDate) }} days remaining
+      </td>
+      <td>{{ employee.nextStep }}</td>
+      <td>
+        <ng-container *ngFor="let doc of employee.documents">
+          <button *ngIf="doc.status === 'pending'" (click)="approveDocument(employee.id, doc.type)">Approve {{ doc.type }}</button>
+          <button *ngIf="doc.status === 'pending'" (click)="rejectDocument(employee.id, doc.type, '')">Reject {{ doc.type }}</button>
+        </ng-container>
+        <button *ngIf="employee.nextStep.includes('submitting')" (click)="sendNotification(employee.id)">Send Notification</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>All Visa Statuses</h3>
+<input type="text" [(ngModel)]="searchTerm" placeholder="Search employee...">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Work Authorization</th>
+      <th>Documents</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of searchEmployees()">
+      <td>{{ employee.name }}</td>
+      <td>
+        {{ employee.workAuthorization.title }}<br>
+        {{ employee.workAuthorization.startDate | date }} - {{ employee.workAuthorization.endDate | date }}<br>
+        {{ getRemainingDays(employee.workAuthorization.endDate) }} days remaining
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let doc of employee.documents">
+            {{ doc.type }} - {{ doc.status }}
+            <button (click)="downloadDocument(employee.id, doc.type)">Download</button>
+            <button (click)="previewDocument(employee.id, doc.type)">Preview</button>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
