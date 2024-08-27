@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'token', component: GenerateTokenComponent },
   // Temporary routes for testing
   // { path: 'test-review', component: OnboardingApplicationReviewComponent },
-  // { path: 'applications/:applicationId', component: ViewApplicationComponent },
+  { path: 'applications/:applicationId', component: ViewApplicationComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' },
   { path: 'housing-management', component: HousingManagementComponent },
