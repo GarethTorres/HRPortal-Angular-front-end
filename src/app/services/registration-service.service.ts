@@ -8,7 +8,7 @@ import axios from 'axios';
   providedIn: 'root'
 })
 export class RegistrationServiceService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'http://localhost:5000/api';
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class RegistrationServiceService {
   sendRegistrationEmail(email: string, token: string, to_name: string, from_name: string): Promise<EmailJSResponseStatus> {
     const templateParams = {
       email,
-      message: `http://localhost:5173/register/${token}`,
+      message: `http://localhost:3000/register/${token}`,
       to_name,
       from_name,
     };

@@ -1,2 +1,12 @@
-<h1>Welcome, {{ user?.username }}</h1>
-<button (click)="logout()">Logout</button>
+<div class="home-container">
+    <h1>Welcome, {{ user?.username }}</h1>
+    <p>What would you like to do today?</p>
+    
+    <div class="button-container">
+        <button mat-raised-button color="primary" (click)="navigateToEmployeeProfiles()">Go to Employee Profiles</button>
+        <button mat-raised-button color="secondary" (click)="navigateToHousingManagement()">Go to Housing Management</button>
+        <button mat-raised-button color="accent" (click)="navigateToVisaStatus()">Go to Visa Status Management</button>
+        <button mat-raised-button color="warn" (click)="navigateToHiringManagement()">Go to Hiring Management</button>
+        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </div>
+</div>

@@ -1,49 +1,99 @@
-.custom-table {
-    table-layout: fixed;
-    width: 100%;
-    overflow-x: auto;
-  
-    .mat-header-cell, .mat-cell {
-      border-right: 1px solid rgba(0, 0, 0, 0.12); 
-      padding: 0 8px; 
-      white-space: nowrap; 
-      overflow: hidden;
-      text-overflow: ellipsis; 
-  
-      &:last-child {
-        border-right: none; 
-      }
-    }
-  
-    .mat-header-row, .mat-row {
-      display: table-row;
-    }
-  
-    .mat-elevation-z8 {
-      overflow-x: auto;
+.form-container {
+  display: flex;                  
+  flex-direction: column;         
+  align-items: center;             
+  justify-content: center;         
+  width: 100%;                     
+  max-width: 600px;               
+  margin: 20px auto;              
+  padding: 20px;                  
+  border: 1px solid #ccc;        
+  border-radius: 8px;             
+  background-color: #ffffff;      
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+
+  mat-form-field {
+    width: 100%;                  
+    margin-bottom: 15px;        
+
+
+    mat-label {
+      color: #007bff;             
     }
   }
-  
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px; 
-  
-    .button-notice-container {
-      display: flex;
-      align-items: center;
-      gap: 16px; 
-  
-      .success-message {
-        color: green;
-        font-weight: bold;
-      }
-  
-      .error-message {
-        color: red;
-        font-weight: bold;
-      }
-  
+
+  .button-notice-container {
+    display: flex;             
+    flex-direction: column;    
+    align-items: center;         
+    margin-top: 10px;        
+
+    button {
+      width: 100%;              
+      max-width: 300px;           
+      padding: 10px;             
+      margin-bottom: 10px;   
+    }
+
+    .success-message {
+      color: #28a745;             
+      margin-top: 10px;           
+      font-weight: bold;     
+    }
+
+    .error-message {
+      color: #dc3545;            
+      margin-top: 10px;           
+      font-weight: bold;           
     }
   }
+}
+
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;              
+}
+
+.table-container {
+  max-width: 100%;
+  overflow-x: auto;
+
+  table {
+    width: 100%;                    
+    border-collapse: collapse;      
   
+    td, th {
+      padding: 10px;                
+      border: 1px solid #ddd;       
+    }
+
+    th {
+      background-color: #007bff;   
+      color: white;                                
+    }
+
+    th.name, td.name {
+      width: 30%;               
+    }
+
+    th.email, td.email {
+      width: 30%;               
+    }
+
+    th.token, td.token {
+      width: 30%;               
+    }
+
+    th.status, td.status {
+      width: 10%;               
+    }
+  }
+}
+
+p {
+  text-align: center;             
+  color: #555;                    
+}

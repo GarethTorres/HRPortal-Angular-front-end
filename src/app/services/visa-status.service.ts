@@ -7,8 +7,7 @@ import { EmployeeVisaStatus } from '../models/employee-visa-status';
   providedIn: 'root'
 })
 export class VisaStatusService {
-  private apiUrl = 'api/visa-status'; 
-// Replace our API URL here
+  private apiUrl = 'http://localhost:5000/api/visa-status'; 
 
   constructor(private http: HttpClient) { }
 

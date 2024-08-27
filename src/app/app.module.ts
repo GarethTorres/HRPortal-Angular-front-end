@@ -13,6 +13,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { VisaEffects } from './store/visa.effects';
 import { visaReducer } from './store/visa.reducer';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -48,6 +50,7 @@ import { ViewApplicationComponent } from './pages/view-application/view-applicat
 
 import { HousingManagementComponent } from './pages/housing-management/housing-management.component';
 import { AddHouseDialogComponent } from './pages/housing-management/add-house-dialog.component';
+import { HiringManagementComponent } from './pages/hiring-management/hiring-management.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,8 @@ import { AddHouseDialogComponent } from './pages/housing-management/add-house-di
     ApprovalConfirmationDialogComponent,
     RejectionConfirmationDialogComponent,
     HousingManagementComponent,
-    AddHouseDialogComponent
+    AddHouseDialogComponent,
+    HiringManagementComponent
   ],
   imports: [
     // Angular
@@ -73,10 +77,13 @@ import { AddHouseDialogComponent } from './pages/housing-management/add-house-di
     RouterModule,
     FormsModule,
     NavigationComponent,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     EffectsModule.forRoot([VisaEffects]),
     BrowserAnimationsModule,
+    MatExpansionModule,
+    MatListModule,
     MatIconModule,
     MatChipsModule,
     MatProgressSpinnerModule,

@@ -6,7 +6,7 @@ import { ReplaySubject, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl = 'http://localhost:5000/api';
   private userSubject: ReplaySubject<any> = new ReplaySubject<any>(1);
   public user: Observable<any> = this.userSubject.asObservable();
 

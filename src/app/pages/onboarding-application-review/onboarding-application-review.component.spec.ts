@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ApplicationService } from './application.service';
+import { ApplicationService } from '../../services/application.service';
 import { OnboardingApplicationReviewComponent } from './onboarding-application-review.component';
 
 describe('OnboardingApplicationReviewComponent', () => {

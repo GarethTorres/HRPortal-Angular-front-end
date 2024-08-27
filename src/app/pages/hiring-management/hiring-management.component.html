@@ -1,0 +1,14 @@
+<div>
+    <h1>Hiring Management</h1>
+    <button (click)="toggleView()">
+        {{ showTokenGenerator ? 'Go to Onboarding Application Review' : 'Go to Registration Token' }}
+    </button>
+
+    <ng-container *ngIf="showTokenGenerator; else onboardingReview">
+        <app-generate-token></app-generate-token>
+    </ng-container>
+
+    <ng-template #onboardingReview>
+        <app-onboarding-application-review></app-onboarding-application-review>
+    </ng-template>
+</div>

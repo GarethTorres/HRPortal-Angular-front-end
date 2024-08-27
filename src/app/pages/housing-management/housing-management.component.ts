@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HousingService } from '../../services/housing.service';
 import { Housing } from '../../models/housing.model';
 import { AddHouseDialogComponent } from './add-house-dialog.component';
+import { Employee } from '../../models/employee.model';
 
 @Component({
   selector: 'app-housing-management',

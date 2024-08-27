@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { VisaStatus } from '../models/visa-status.model';
+import { EmployeeVisaStatus } from '../models/visa-status.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VisaService {
-  private apiUrl = 'api/visa';
-// Replace our API URL here
+  private apiUrl = 'http://localhost:5000/api/visa';
 
   constructor(private http: HttpClient) {}
 
-  getVisaStatus(): Observable<VisaStatus> {
-    return this.http.get<VisaStatus>(`${this.apiUrl}/status`);
+  getVisaStatus(): Observable<EmployeeVisaStatus> {
+    return this.http.get<EmployeeVisaStatus>(`${this.apiUrl}/status`);
   }
 
-  uploadDocument(documentType: string, file: File): Observable<VisaStatus> {
+  uploadDocument(documentType: string, file: File): Observable<EmployeeVisaStatus> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<VisaStatus>(`${this.apiUrl}/upload/${documentType}`, formData);
+    return this.http.post<EmployeeVisaStatus>(`${this.apiUrl}/upload/${documentType}`, formData);
   }
 
   downloadTemplate(templateType: string): Observable<Blob> {

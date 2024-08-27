@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import * as VisaActions from './visa.actions';
-import { VisaStatus } from '../models/visa-status.model';
+import { EmployeeVisaStatus } from '../models/visa-status.model';
 
 export interface VisaState {
-  visaStatus: VisaStatus | null;
+  visaStatus: EmployeeVisaStatus | null;
   loading: boolean;
   error: any;
 }

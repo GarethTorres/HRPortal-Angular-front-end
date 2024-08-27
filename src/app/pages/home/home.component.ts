@@ -18,4 +18,20 @@ export class HomeComponent {
     this.authService.logout();
     this.router.navigate(['/login']);
   }
+
+  navigateToEmployeeProfiles() {
+    this.router.navigate(['/employee-profiles']);
+  }
+  
+  navigateToHousingManagement() {
+    this.router.navigate(['/housing-management']);
+  }
+
+  navigateToVisaStatus() {
+    this.router.navigate(['/visa-status-management']);
+  }
+
+  navigateToHiringManagement() {
+    this.router.navigate(['/hiring-management']);
+  }
 }

@@ -1,12 +1,12 @@
 import { createAction, props } from '@ngrx/store';
-import { VisaStatus } from '../models/visa-status.model';
+import { EmployeeVisaStatus } from '../models/visa-status.model';
 
 export const loadVisaStatus = createAction('[Visa] Load Visa Status');
-export const loadVisaStatusSuccess = createAction('[Visa] Load Visa Status Success', props<{ visaStatus: VisaStatus }>());
+export const loadVisaStatusSuccess = createAction('[Visa] Load Visa Status Success', props<{ visaStatus: EmployeeVisaStatus }>());
 export const loadVisaStatusFailure = createAction('[Visa] Load Visa Status Failure', props<{ error: any }>());
 
 export const uploadDocument = createAction('[Visa] Upload Document', props<{ documentType: string, file: File }>());
-export const uploadDocumentSuccess = createAction('[Visa] Upload Document Success', props<{ visaStatus: VisaStatus }>());
+export const uploadDocumentSuccess = createAction('[Visa] Upload Document Success', props<{ visaStatus: EmployeeVisaStatus }>());
 export const uploadDocumentFailure = createAction('[Visa] Upload Document Failure', props<{ error: any }>());
 
 export const downloadTemplate = createAction('[Visa] Download Template', props<{ templateType: string }>());

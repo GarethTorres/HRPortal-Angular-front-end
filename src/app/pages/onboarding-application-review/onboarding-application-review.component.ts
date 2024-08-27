@@ -7,7 +7,7 @@ import {
 } from '../../models/application.model';
 
 @Component({
-  selector: 'onboarding-application-review',
+  selector: 'app-onboarding-application-review',
   templateUrl: './onboarding-application-review.component.html',
   styleUrls: ['./onboarding-application-review.component.css'],
 })

@@ -5,6 +5,7 @@ export interface Landlord {
   }
   
   export interface FacilityReport {
+    id: string;
     title: string;
     description: string;
     createdBy: string;
@@ -18,6 +19,7 @@ export interface Landlord {
   }
   
   export interface Employee {
+    id: string;
     fullName: string;
     phoneNumber: string;
     email: string;

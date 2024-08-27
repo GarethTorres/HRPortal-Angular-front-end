@@ -12,13 +12,15 @@ import {
   providedIn: 'root',
 })
 export class ApplicationService {
-  private baseApiUrl = '/api/hr/applications';
+  private baseApiUrl = 'http://localhost:5000/api/hr/applications';
 
   constructor(private http: HttpClient) {}
 
   // Fetch application summaries (for onboarding application review component)
   getApplicationSummaries(): Observable<OnboardingApplicationSummary[]> {
-    return this.http.get<OnboardingApplicationSummary[]>(this.baseApiUrl);
+    return this.http.get<OnboardingApplicationSummary[]>(this.baseApiUrl,
+      {headers: this.getHeaders()}
+    );
   }
 
   // Fetch application details by ID (for viewing the details of an application in the view application component)
@@ -26,7 +28,8 @@ export class ApplicationService {
     applicationId: string
   ): Observable<OnboardingApplicationDetails> {
     return this.http.get<OnboardingApplicationDetails>(
-      `${this.baseApiUrl}/${applicationId}`
+      `${this.baseApiUrl}/${applicationId}`,
+      {headers: this.getHeaders()}
     );
   }
 
@@ -35,7 +38,8 @@ export class ApplicationService {
     return this.http
       .patch<{ message: string }>(
         `${this.baseApiUrl}/${applicationId}/approve`,
-        {}
+        {},
+        { headers: this.getHeaders() }
       )
       .pipe(map((response) => response.message));
   }
@@ -50,9 +54,17 @@ export class ApplicationService {
         `${this.baseApiUrl}/${applicationId}/reject`,
         {
           feedback,
-        }
+        },
+        { headers: this.getHeaders() }
       )
       .pipe(map((response) => response.message));
+  }
+
+  private getHeaders() {
+    const token = localStorage.getItem('authToken'); // Retrieve token from local storage
+    return {
+      Authorization: `Bearer ${token}` // Send as Bearer token
+    };
   }
 
   // // Mocked method for fetching application summaries
