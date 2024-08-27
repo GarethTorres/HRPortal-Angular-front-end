@@ -19,7 +19,7 @@ export class ApplicationService {
   // Fetch application summaries (for onboarding application review component)
   getApplicationSummaries(): Observable<OnboardingApplicationSummary[]> {
     return this.http.get<OnboardingApplicationSummary[]>(this.baseApiUrl,
-      {headers: this.getHeaders()}
+      { withCredentials: true }
     );
   }
 
@@ -29,7 +29,7 @@ export class ApplicationService {
   ): Observable<OnboardingApplicationDetails> {
     return this.http.get<OnboardingApplicationDetails>(
       `${this.baseApiUrl}/${applicationId}`,
-      {headers: this.getHeaders()}
+      { withCredentials: true }
     );
   }
 
@@ -39,7 +39,7 @@ export class ApplicationService {
       .patch<{ message: string }>(
         `${this.baseApiUrl}/${applicationId}/approve`,
         {},
-        { headers: this.getHeaders() }
+        { withCredentials: true }
       )
       .pipe(map((response) => response.message));
   }
@@ -55,17 +55,17 @@ export class ApplicationService {
         {
           feedback,
         },
-        { headers: this.getHeaders() }
+        { withCredentials: true }
       )
       .pipe(map((response) => response.message));
   }
 
-  private getHeaders() {
-    const token = localStorage.getItem('authToken'); // Retrieve token from local storage
-    return {
-      Authorization: `Bearer ${token}` // Send as Bearer token
-    };
-  }
+  // private getHeaders() {
+  //   const token = localStorage.getItem('authToken'); // Retrieve token from local storage
+  //   return {
+  //     Authorization: `Bearer ${token}` // Send as Bearer token
+  //   };
+  // }
 
   // // Mocked method for fetching application summaries
   // getApplicationSummaries(): Observable<OnboardingApplicationSummary[]> {
