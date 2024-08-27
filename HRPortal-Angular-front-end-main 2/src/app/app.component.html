@@ -1,0 +1,18 @@
+<ng-container *ngIf="isAuthenticated; else showLogin">
+  <app-navigation></app-navigation>
+  <router-outlet></router-outlet>
+</ng-container>
+<app-navigation></app-navigation>
+<router-outlet></router-outlet>
+
+<ng-template #showLogin>
+  <!-- Render login component if not authenticated -->
+  <app-login></app-login>
+</ng-template>
+
+<!-- CAN REMOVE: Only used for testing components -->
+<!-- <div style="padding: 20px;">
+  <h1>Component Testing</h1>
+  <button mat-raised-button color="primary" routerLink="/test-review">Test Onboarding Application Review Component</button>
+  <router-outlet></router-outlet>
+</div> -->
